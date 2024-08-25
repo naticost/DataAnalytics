@@ -53,3 +53,35 @@ Familiarize-se com as operações básicas de SQL, como `SELECT`, `INSERT`, `UPD
 
 ## 12. Índices
 Índices são estruturas de dados que melhoram a velocidade de recuperação de dados em uma tabela. Eles funcionam como um índice em um livro, permitindo que o banco de dados localize rapidamente os registros sem ter que escanear toda a tabela.
+
+## 13. Constraints (Restrições)
+**Constraints** são regras aplicadas às colunas de uma tabela no banco de dados para garantir a integridade dos dados. Elas ajudam a manter a consistência e a precisão dos dados. Os principais tipos de constraints são:
+
+- **PRIMARY KEY:**
+  - Garante que cada registro em uma tabela seja único.
+  - A coluna (ou conjunto de colunas) definida como PRIMARY KEY não pode conter valores nulos (NULL).
+  - Exemplo: `id INT PRIMARY KEY`
+
+- **FOREIGN KEY:**
+  - Estabelece um vínculo entre duas tabelas.
+  - Garante que o valor de uma coluna corresponda a valores existentes em outra tabela.
+  - Exemplo: `cliente_id INT, FOREIGN KEY (cliente_id) REFERENCES clientes(id)`
+
+- **UNIQUE:**
+  - Garante que todos os valores em uma coluna sejam únicos.
+  - Exemplo: `email VARCHAR(255) UNIQUE`
+
+- **NOT NULL:**
+  - Garante que uma coluna não aceite valores nulos.
+  - Exemplo: `nome VARCHAR(100) NOT NULL`
+
+- **CHECK:**
+  - Define uma condição que deve ser atendida para que o valor seja aceito na coluna.
+  - Exemplo: `idade INT CHECK (idade >= 18)`
+
+- **DEFAULT:**
+  - Define um valor padrão para uma coluna caso nenhum valor seja inserido.
+  - Exemplo: `status VARCHAR(20) DEFAULT 'ativo'`
+
+### Valor Default
+O valor *default* é um valor atribuído automaticamente a uma coluna quando um registro é inserido na tabela e não é fornecido nenhum valor específico para essa coluna. Isso é útil para garantir que as colunas tenham um valor significativo mesmo quando o usuário não insere nada.
